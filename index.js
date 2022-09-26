@@ -1,5 +1,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 const managerQuestions =[
     {
         type: 'input',
@@ -84,7 +87,57 @@ const internQuestions = [
         name: 'addMember'
     }
 ];
+const fullTeam = [];
 function init (){
+    inquirer
+        .prompt(managerQuestions)
+        .then(({managerName, managerId, managerEmail, managerOffice, addMember}) => {fullTeam.push(new Manager(managerName, managerId, managerEmail, managerOffice))
+        console.log(fullTeam);
+        if(addMember === 'Engineer'){
+            getEngineer();
+        }
+        else if(addMember === 'Intern'){
+            getIntern();
+        }
+        else{
+            console.log('no more')
+        }
+        });
+};
 
-    
+function getEngineer(){
+    inquirer
+    .prompt(engineerQuestions)
+    .then(({engineerName, engineerId, engineerEmail, engineerGit, addMember}) =>
+    {fullTeam.push(new Engineer(engineerName, engineerId, engineerEmail,engineerGit))
+    console.log(fullTeam)
+    if(addMember === 'Engineer'){
+        getEngineer();
+    }
+    else if(addMember === 'Intern'){
+        getIntern();
+    }
+    else{
+        console.log('no more')
+    }
+    })
 }
+
+function getIntern(){
+    inquirer
+    .prompt(internQuestions)
+    .then(({internName, internId, internEmail, internSchool, addMember}) =>
+    {fullTeam.push(new Intern(internName, internId, internEmail, internSchool))
+    console.log(fullTeam);
+    if(addMember === 'Engineer'){
+        getEngineer();
+    }
+    else if(addMember === 'Intern'){
+        getIntern();
+    }
+    else{
+        console.log('no more')
+    }
+    })
+}
+init();
