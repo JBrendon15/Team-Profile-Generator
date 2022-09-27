@@ -63,7 +63,7 @@ function generateHtml(fullTeam){
                 <h1 class="display-4 text-light text-center">My Team</h1>
             </div>
         </div>
-        <div class="container row justify-content-between">
+        <div class="container-fluid row justify-content-around">
             ${generateCards(fullTeam)}
         </div>      
     </body>
