@@ -4,10 +4,10 @@ function generateCards(fullTeam){
     return fullTeam.map(member => {
         if(member.getRole() === 'Manager'){
            return `
-           <div class="card" style="width: 18rem;">
+           <div class="card col-sm-12 col-md-4 col-lg-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${member.name}</h5>
-                    <p class="card-text">${member.getRole()}</p>
+                    <p class="card-text">☕ ${member.getRole()}</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${member.id}</li>
@@ -18,24 +18,24 @@ function generateCards(fullTeam){
         }
         else if (member.getRole() === 'Engineer'){
             return `
-           <div class="card" style="width: 18rem;">
+           <div class="card col-sm-12 col-md-4 col-lg-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${member.name}</h5>
-                    <p class="card-text">${member.getRole()}</p>
+                    <p class="card-text">👓 ${member.getRole()}</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${member.id}</li>
                     <li class="list-group-item">Email: <a href="mailto:${member.email}" class="card-link">${member.email}</a></li>
-                    <li class="list-group-item">Github: <a href="github.com/${member.github}" class="card-link">${member.github}</a></li>  
+                    <li class="list-group-item">Github: <a href="https://github.com/${member.github}" class="card-link">${member.github}</a></li>  
                 </ul>
             </div>`
         }
         else if(member.getRole() === 'Intern'){
             return `
-           <div class="card" style="width: 18rem;">
+           <div class="card col-sm-12 col-md-4 col-lg-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${member.name}</h5>
-                    <p class="card-text">${member.getRole()}</p>
+                    <p class="card-text">🎓 ${member.getRole()}</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${member.id}</li>
@@ -58,7 +58,14 @@ function generateHtml(fullTeam){
         <title>Document</title>
     </head>
     <body>
-        ${generateCards(fullTeam)}      
+        <div class="jumbotron jumbotron-fluid bg-primary">
+            <div class="container">
+                <h1 class="display-4 text-light">My Team</h1>
+            </div>
+        </div>
+        <div class="container row">
+            ${generateCards(fullTeam)}
+        </div>      
     </body>
     </html>`
 }
