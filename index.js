@@ -106,10 +106,10 @@ function init (){
             else if(addMember === 'Intern'){
                 getIntern();
             }
-        else{
+            else{
             fs.writeFile('./dist/team.html', generateHtml(fullTeam), (err) =>
                 err ? console.error(err) : console.log('Team was successfully saved.'))
-        }
+            }
         })
 };
 // function that runs when user inputs that they want to add an engineer to the team
