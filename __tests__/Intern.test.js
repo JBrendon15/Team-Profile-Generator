@@ -1,3 +1,4 @@
+// these test codes were provided to us by our instructional team
 const Intern = require("../lib/Intern");
 
 test("Can set school via constructor", () => {

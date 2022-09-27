@@ -1,3 +1,4 @@
+// these test codes were provided to us by our instructional team
 const Employee = require("../lib/Employee");
 
 test("Can instantiate Employee instance", () => {

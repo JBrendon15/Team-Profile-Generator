@@ -1,3 +1,4 @@
+// these test codes were provided to us by our instructional team
 const Engineer = require("../lib/Engineer");
 
 test("Can set GitHUb account via constructor", () => {
