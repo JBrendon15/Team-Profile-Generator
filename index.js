@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const generateHtml = require('./src/generateHTML');
 const managerQuestions =[
     {
         type: 'input',
@@ -91,18 +92,19 @@ const fullTeam = [];
 function init (){
     inquirer
         .prompt(managerQuestions)
-        .then(({managerName, managerId, managerEmail, managerOffice, addMember}) => {fullTeam.push(new Manager(managerName, managerId, managerEmail, managerOffice))
-        console.log(fullTeam);
-        if(addMember === 'Engineer'){
-            getEngineer();
-        }
-        else if(addMember === 'Intern'){
-            getIntern();
-        }
+        .then(({managerName, managerId, managerEmail, managerOffice, addMember}) => {
+            fullTeam.push(new Manager(managerName, managerId, managerEmail, managerOffice))
+            if(addMember === 'Engineer'){
+                getEngineer();
+            }
+            else if(addMember === 'Intern'){
+                getIntern();
+            }
         else{
-            console.log('no more')
+            fs.writeFile('./dist/team.html', generateHtml(fullTeam), (err) =>
+                err ? console.error(err) : console.log('Team was successfully saved.'))
         }
-        });
+        })
 };
 
 function getEngineer(){
@@ -110,7 +112,6 @@ function getEngineer(){
     .prompt(engineerQuestions)
     .then(({engineerName, engineerId, engineerEmail, engineerGit, addMember}) =>
     {fullTeam.push(new Engineer(engineerName, engineerId, engineerEmail,engineerGit))
-    console.log(fullTeam)
     if(addMember === 'Engineer'){
         getEngineer();
     }
@@ -118,7 +119,8 @@ function getEngineer(){
         getIntern();
     }
     else{
-        console.log('no more')
+        fs.writeFile('./dist/team.html', generateHtml(fullTeam), (err) =>
+            err ? console.error(err) : console.log('Team was successfully saved.'))
     }
     })
 }
@@ -128,7 +130,6 @@ function getIntern(){
     .prompt(internQuestions)
     .then(({internName, internId, internEmail, internSchool, addMember}) =>
     {fullTeam.push(new Intern(internName, internId, internEmail, internSchool))
-    console.log(fullTeam);
     if(addMember === 'Engineer'){
         getEngineer();
     }
@@ -136,7 +137,8 @@ function getIntern(){
         getIntern();
     }
     else{
-        console.log('no more')
+        fs.writeFile('./dist/team.html', generateHtml(fullTeam), (err) =>
+            err ? console.error(err) : console.log('Team was successfully saved.'))
     }
     })
 }
