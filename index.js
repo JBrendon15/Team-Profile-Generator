@@ -1,9 +1,11 @@
+// imports all the neccessary packages
 const fs = require('fs');
 const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const generateHtml = require('./src/generateHTML');
+// array for prompts to get user input on manager role
 const managerQuestions =[
     {
         type: 'input',
@@ -32,6 +34,7 @@ const managerQuestions =[
         name: 'addMember'
     }
 ];
+// array for prompts to get user input on engineer role
 const engineerQuestions = [
     {
         type: 'input',
@@ -60,6 +63,7 @@ const engineerQuestions = [
         name: 'addMember'
     }
 ];
+// array for prompts to get user input on intern role
 const internQuestions = [
     {
         type: 'input',
@@ -88,7 +92,9 @@ const internQuestions = [
         name: 'addMember'
     }
 ];
+// array to store all team members that user created
 const fullTeam = [];
+// function that runs when application is started, captures values and saves them to specific keys, if else conditions to determine if prompts need to be run for different roles or generate HTML file when all roles are complete
 function init (){
     inquirer
         .prompt(managerQuestions)
@@ -106,7 +112,7 @@ function init (){
         }
         })
 };
-
+// function that runs when user inputs that they want to add an engineer to the team
 function getEngineer(){
     inquirer
     .prompt(engineerQuestions)
@@ -124,7 +130,7 @@ function getEngineer(){
     }
     })
 }
-
+// function that runs when user inputs that they want to add an intern to the team
 function getIntern(){
     inquirer
     .prompt(internQuestions)
@@ -142,4 +148,5 @@ function getIntern(){
     }
     })
 }
+// function call to start the application
 init();

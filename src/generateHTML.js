@@ -1,5 +1,5 @@
 const fs = require('fs');
-
+// function to create an array of cards based on team member's role taking an array of objects as an input, then joined together with a new line to be returned as a string
 function generateCards(fullTeam){
     return fullTeam.map(member => {
         if(member.getRole() === 'Manager'){
@@ -46,7 +46,7 @@ function generateCards(fullTeam){
         }
     }).join('\n')
 }
-
+// function to return a string that is the general layout of the html file along with the return value of generateCards function
 function generateHtml(fullTeam){
     return `<!DOCTYPE html>
     <html lang="en">
