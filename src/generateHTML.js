@@ -26,7 +26,7 @@ function generateCards(fullTeam){
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${member.id}</li>
                     <li class="list-group-item">Email: <a href="mailto:${member.email}" class="card-link">${member.email}</a></li>
-                    <li class="list-group-item">Github: <a href="https://github.com/${member.github}" class="card-link">${member.github}</a></li>  
+                    <li class="list-group-item">Github: <a href="https://github.com/${member.github}" target="_blank" class="card-link">${member.github}</a></li>  
                 </ul>
             </div>`
         }
