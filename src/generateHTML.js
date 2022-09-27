@@ -60,10 +60,10 @@ function generateHtml(fullTeam){
     <body>
         <div class="jumbotron jumbotron-fluid bg-primary">
             <div class="container">
-                <h1 class="display-4 text-light">My Team</h1>
+                <h1 class="display-4 text-light text-center">My Team</h1>
             </div>
         </div>
-        <div class="container row">
+        <div class="container row justify-content-between">
             ${generateCards(fullTeam)}
         </div>      
     </body>
