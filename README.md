@@ -18,7 +18,8 @@ node index.js
 [Tutorial Video](https://www.awesomescreenshot.com/video/11356723?key=e83fc9b7e9b548eaa389c72e0d5ed8e4)
 
 ## Test
-Right click on test folder and select 'Open in Integrated Terminal' then type the following in your terminal: 
+To run the test cases, right click on test folder and select 'Open in Integrated Terminal' then type the following in your terminal: 
 ```
 npm run test
 ```
+These tests should all pass in the terminal.
