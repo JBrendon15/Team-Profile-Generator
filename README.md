@@ -15,7 +15,7 @@ npm i
 ```
 node index.js
 ```
-[Tutorial Video]()
+[Tutorial Video](https://www.awesomescreenshot.com/video/11356723?key=e83fc9b7e9b548eaa389c72e0d5ed8e4)
 
 ## Test
 Right click on test folder and select 'Open in Integrated Terminal' then type the following in your terminal: 
