@@ -4,7 +4,7 @@ function generateCards(fullTeam){
     return fullTeam.map(member => {
         if(member.getRole() === 'Manager'){
            return `
-           <div class="card col-sm-12 col-md-4 col-lg-3" style="width: 18rem;">
+           <div class="card col-sm-12 col-md-4 col-lg-3 my-3" style="max-width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${member.name}</h5>
                     <p class="card-text">☕ ${member.getRole()}</p>
@@ -18,7 +18,7 @@ function generateCards(fullTeam){
         }
         else if (member.getRole() === 'Engineer'){
             return `
-           <div class="card col-sm-12 col-md-4 col-lg-3" style="width: 18rem;">
+           <div class="card col-sm-12 col-md-4 col-lg-3 my-3" style="max-width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${member.name}</h5>
                     <p class="card-text">👓 ${member.getRole()}</p>
@@ -32,7 +32,7 @@ function generateCards(fullTeam){
         }
         else if(member.getRole() === 'Intern'){
             return `
-           <div class="card col-sm-12 col-md-4 col-lg-3" style="width: 18rem;">
+           <div class="card col-sm-12 col-md-4 col-lg-3 my-3" style="max-width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${member.name}</h5>
                     <p class="card-text">🎓 ${member.getRole()}</p>
